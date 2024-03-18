@@ -2,10 +2,10 @@ import{Link} from "react-router-dom";
 
 export default function NotFoundPage () {
     return (
-        <>
-          <Link to="/">Home</Link>
-          <p>Anything Is Not Found</p>
-        </>
+        <div>
+          <p>Oops! Anything Is Not Found!</p>
+          <Link to="/">Back to Home Page</Link>
+        </div>
     
     )
 }
