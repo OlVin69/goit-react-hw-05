@@ -1,14 +1,5 @@
 import axios from "axios";
 
-// axios.defaults.baseURL = "https://api.themoviedb.org/3";
-
-// export const getMovies = async ()=>{
-//     const response = await axios.get("/movie/day");
-//     return response.data;
-// };
-
-// const url = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1';
-// 'https://api.themoviedb.org/3/trending/movie/day?language=en-US' 
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 
@@ -23,6 +14,9 @@ export const getMovies = async ()=>{
     return response.data;
 };
 
-// axios.get(url, options)
-//   .then(response => console.log(response))
-//   .catch(err => console.error(err));
+export const getMoviesById = async (movie_id) =>{
+    const response = await axios.get(`movie/ ${movie_id}`, options);
+    return response.data;
+};
+
+
