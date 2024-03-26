@@ -3,6 +3,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import MyLoader from "../../components/MyLoader/MyLoader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { getMovies } from "../../movies-api";
+import css from "./Home pege.module.css";
 
 
 export default function HomePage() {
@@ -29,11 +30,12 @@ export default function HomePage() {
     }, []);
 
     return (
-    <div>
-        <h1>Trending today</h1>
+    <div className={css.container}>
+        <h1 className={css.title}>Trending today</h1>
+        {loading && <MyLoader/>}
         {error && <ErrorMessage/>}
         <MovieList movies={movies}/>
-        {loading && <MyLoader/>}
+        
     </div>
     );
 }
