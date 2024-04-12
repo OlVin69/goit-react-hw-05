@@ -6,14 +6,12 @@ import css from "./MovieCast.module.css";
 
 export default function MovieCast () {
     const { movie_id } = useParams();
-   console.log(movie_id);
 
-  const [cast, setCast] = useState([]);
+    const [cast, setCast] = useState([]);
 
   useEffect(() => {
     async function fetchMovieCastById() {
       try {
-       
         const data = await getMovieCreditsById(movie_id);
         setCast(data);
                 
@@ -24,7 +22,7 @@ export default function MovieCast () {
    }
     fetchMovieCastById()},
    [movie_id]);
-   console.log(movie_id);
+   
 
    return (
     <ul className={css.list}>

@@ -3,7 +3,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import MyLoader from "../../components/MyLoader/MyLoader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { getMovies } from "../../movies-api";
-import css from "./Home pege.module.css";
+import css from "./HomePage.module.css";
 
 
 export default function HomePage() {

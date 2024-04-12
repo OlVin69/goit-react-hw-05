@@ -12,7 +12,7 @@ export default function MovieDetailsPage() {
     const [movie, setMovie] = useState(false);
 
     const {movie_id}=useParams();
-    console.log(movie_id);
+    
     const location = useLocation();
     const backLinkRef = useRef(location.state ?? "/movies");
 
