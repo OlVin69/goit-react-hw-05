@@ -3,16 +3,14 @@ import {Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { getMoviesById } from "../../movies-api";
 import css from "./MovieDetailsPage.module.css";
 
+
 const makeActiveClass = ({ isActive }) => {
   return `css.link ${isActive && css.isActive}`;
 };
 
-
 export default function MovieDetailsPage() {
     const [movie, setMovie] = useState(false);
-
     const {movie_id}=useParams();
-    
     const location = useLocation();
     const backLinkRef = useRef(location.state ?? "/movies");
 
@@ -29,6 +27,10 @@ export default function MovieDetailsPage() {
         }
         getData();
     }, [movie_id]);
+    
+    useEffect(() => {
+      backLinkRef.current = location.state ?? "/movies";
+    }, [location.state]);
 
     return (
     <div className={css.container}> 
@@ -43,6 +45,7 @@ export default function MovieDetailsPage() {
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt=""
           />
+          
           <div>
             <b>Overview:</b>
             <p>{movie.overview}</p>
@@ -72,3 +75,5 @@ export default function MovieDetailsPage() {
     </div>
     )
 }
+
+
