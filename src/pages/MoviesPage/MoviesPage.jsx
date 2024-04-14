@@ -9,7 +9,7 @@ export default function MoviesPage() {
       
   const [query, setQuery] = useSearchParams();
   const [movies, setMovies] = useState([]);
-  const movieFilter = query.get("query") ?? "";
+  const movieFilter = query.get("films") ?? "";
     
   useEffect(() => {
     if (movieFilter === "") {
@@ -31,27 +31,26 @@ export default function MoviesPage() {
     e.preventDefault();
     
     setMovies([]);
+    
 
     const formData = new FormData(e.target);
-    const searchQuery = formData.get("query");
-    if (searchQuery === null) {
-        alert("Please enter a value in the field");
-      } else if(searchQuery.trim() === "")
+    const searchQuery = formData.get("films");
+     if(searchQuery.trim() === "")
       {alert("Please enter a value in the field");
     } else
        {
-        query.set("query", searchQuery.trim());
-        setQuery(query);
+        query.set("films", searchQuery.trim());
+      setQuery(query);
       }
     };
- 
+   
 
     return (
         <div className={css.container}>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="query"
+              name="films"
               defaultValue={movieFilter}
               autoComplete="off"
               autoFocus

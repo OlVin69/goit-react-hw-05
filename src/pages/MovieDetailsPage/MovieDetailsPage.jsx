@@ -28,9 +28,6 @@ export default function MovieDetailsPage() {
         getData();
     }, [movie_id]);
     
-    useEffect(() => {
-      backLinkRef.current = location.state ?? "/movies";
-    }, [location.state]);
 
     return (
     <div className={css.container}> 
